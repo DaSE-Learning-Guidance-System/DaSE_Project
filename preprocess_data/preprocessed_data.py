@@ -67,3 +67,17 @@ for i in range(2, nrows + 1):
     sheet1[res].value = "[]"
 
 workbook.save(filename = "preprocessed_datasets.xlsx")
+
+
+f = open("final_data2.txt","r",encoding='utf-8')
+text = f.read()
+# print(text)
+text_processed = text.replace('\"[','[')
+text_processed = text_processed.replace(']\"',']')
+text_processed = text_processed.replace('\\\"', '\"')
+text_processed = text_processed.replace('\\\\\"','\"')
+text_processed = text_processed.replace('\"{','{')
+text_processed = text_processed.replace('}\"', '}')
+fw = open("data_processed.txt", 'w',encoding='utf-8')
+fw.write(text_processed)
+print(text_processed)
